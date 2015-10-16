@@ -21,5 +21,5 @@ def application(environ, start_response):
              ('Access-Control-Allow-Origin', '*')]
   start_response('200 OK', headers)
 
-  return [json.dumps(statuses)]
+  return [json.dumps(statuses).encode('utf8')]
 
