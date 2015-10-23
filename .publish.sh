@@ -1,6 +1,6 @@
 #!/bin/bash -e
 # Setup login
-openssl aes-256-cbc -K $encrypted_FIXME_key -iv $encrypted_FIXME_iv -in .dockercfg.enc -out ~/.dockercfg -d
+openssl aes-256-cbc -K $encrypted_d2da0263f2f8_key -iv $encrypted_d2da0263f2f8_iv -in .dockercfg.enc -out .dockercfg -d
 if [ "$TRAVIS_BRANCH" == "master" ]; then
   echo "Deploying image to docker hub for master (latest)"
   docker push "camptocamp/puppetdb-dashapi:latest"
