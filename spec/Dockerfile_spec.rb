@@ -14,7 +14,7 @@ describe "Dockerfile" do
     set :docker_container_create_options, { "Privileged" => true }
   end
 
-  describe file('/app/puppetboard/app.py') do
+  describe file('/app/dashapi.py') do
     it { is_expected.to be_file }
   end
 end
