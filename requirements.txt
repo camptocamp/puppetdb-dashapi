@@ -1,1 +1,1 @@
-git+https://github.com/raphink/pypuppetdb@v4-api#egg=pypuppetdb-0.1.9
+pypuppetdb-0.2.1
