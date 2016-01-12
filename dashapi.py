@@ -2,6 +2,7 @@
 
 import pypuppetdb
 import json
+import os
 
 import settings
 
@@ -13,8 +14,13 @@ def application(environ, start_response):
                           ssl_cert=settings.PUPPETDB_CERT,
                           ssl_verify=settings.PUPPETDB_SSL_VERIFY)
 
+  if 'DASHAPI_OVERVIEW_FILTER' in os.environ:
+    filter_query = os.environ['DASHAPI_OVERVIEW_FILTER']
+  else:
+    filter_query = None
+
   statuses = {'failed':0, 'changed':0, 'unchanged':0, 'unreported':0}
-  for node in db.nodes(with_status=True):
+  for node in db.nodes(with_status=True, query=filter_query):
     statuses[node.status] += 1
 
   headers = [('Content-type', 'text/plain'),
