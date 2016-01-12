@@ -1,1 +1,1 @@
-pypuppetdb-0.2.1
+pypuppetdb~=0.2.1
