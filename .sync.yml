@@ -1,4 +1,4 @@
 ---
 :global:
   docker_image_name: 'puppetdb-dashapi'
-  travis_key_id: 'FIXME'
+  travis_key_id: 'cd3190bc0a50'
