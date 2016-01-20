@@ -21,7 +21,10 @@ def application(environ, start_response):
 
   statuses = {'failed':0, 'changed':0, 'unchanged':0, 'unreported':0}
   for node in db.nodes(with_status=True, query=filter_query):
-    statuses[node.status] += 1
+    try:
+      statuses[node.status] += 1
+    except KeyError:
+      statuses[node.status] = 1
 
   headers = [('Content-type', 'text/plain'),
              ('Access-Control-Allow-Origin', '*')]
